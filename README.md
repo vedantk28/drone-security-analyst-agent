@@ -2,6 +2,59 @@
 
 A modular AI-powered surveillance system that analyzes drone frame captions and telemetry data to detect suspicious activity, generate alerts, and support semantic search .
 
+## ✅ Requirements Coverage
+
+### 1. Feature Specification
+
+**Value to Property Owners:** Enhances perimeter security through automated surveillance and intelligent event analysis. The agent autonomously monitors drone video feeds, identifies unusual patterns (e.g., crowd formation after midnight), triggers alerts, and supports natural language investigations — reducing dependency on manual monitoring and improving response time.
+
+**Key Requirements Addressed:**
+- **Automated monitoring via frame captioning and telemetry inference**
+- **Real-time alert generation based on rule-based anomaly detection**
+- **Conversational querying of surveillance data using an agent pipeline**
+
+### 2. Design / Architecture
+
+**Proposed Architecture:**
+- **Frame Ingestion:** Frames simulated via BLIP captioning
+- **Telemetry Module:** Infers location and timestamp from captions
+- **Alert Engine:** Applies security rules (e.g., object-location-time combinations)
+- **Indexer:** Stores structured `FrameEvent` objects with semantic metadata
+- **Semantic Retriever:** Searches indexed events using FAISS
+- **Agent Orchestration:** LangChain tools + DialoGPT for reasoning and response
+
+Architecture was validated using AI-guided modular development and visualized using a Mermaid diagram (see `/docs/system_architecture.md`).
+
+### 3. Development
+
+- **Language:** Python
+- **Simulation:** Used `generate_sample_data()` to create synthetic frames like:
+  - `"Frame 109: a large crowd gathered near a gate under low light"`
+  - `"Time: 00:03, Location: Urban Zone"`
+- **AI-Generated Components:**
+  - Captioning via **BLIP** (HuggingFace model)
+  - Prompt engineering + tool chaining via **LangChain**
+  - Rule-based alert engine scaffolding co-designed using **Copilot**
+
+All components were modularized under `/src`, tested using simulated data, and orchestrated via `main.py`.
+
+### 4. Cross-Domain Indexing
+
+- **Indexing System:** Implemented a frame-by-frame semantic index using FAISS. Each `FrameEvent` contains object, location, timestamp, and caption text.
+- **Storage Format:** Events are stored in structured JSON (`data/indexed_frames.json`) for traceability and semantic retrieval.
+- **AI Guidance:** Used Copilot to design the indexing pipeline and embedding strategy.
+
+### 5. QA and Validation
+
+- **Unit Tests:** Test cases created under `/tests` to verify:
+  - Truck events correctly indexed
+  - Midnight crowd alerts are triggered
+  - Agent returns coherent responses based on FAISS search
+- **Integration Testing:** `main.py` simulates full pipeline: data generation → alert triggers → indexing → agent response.
+- **Manual QA via Semantic Queries:** Sample agent query: `"Were any buses near the Garage?"` Response: `"Yes, detections of a bus near the Garage triggered alerts around 14:00."`
+
+AI tools (Copilot + LangChain + DialoGPT) assisted in generating test flows, debugging logic, and validating conversational outputs.
+
 ---
 
 ## 📦 Setup Instructions
