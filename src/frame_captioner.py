@@ -18,7 +18,7 @@ def caption_image(image_path):
     return caption
 
 # 📸 Caption multiple images (limit helps for testing!)
-def caption_all_images(folder="/home/vedant/Desktop/drone_security_agent_project/data/visdrone/images", limit=5):
+def caption_all_images(folder="/home/vedant/Desktop/drone_security_agent_project/data/visdrone/images", limit=10):
     all_images = sorted(
         [f for f in os.listdir(folder) if f.lower().endswith((".jpg", ".jpeg", ".png"))]
     )[:limit]
@@ -38,8 +38,16 @@ def caption_all_images(folder="/home/vedant/Desktop/drone_security_agent_project
 if __name__ == "__main__":
     results = caption_all_images(
         folder="/home/vedant/Desktop/drone_security_agent_project/data/visdrone/images",
-        limit=5
+        limit=10
     )
     print("\n📋 Summary:")
     for fname, caption in results:
         print(f"{fname}: {caption}")
+
+    # 💾 Save to file
+    import json
+    captions_dict = {fname: caption for fname, caption in results}
+    with open("data/frame_captions.json", "w") as f:
+        json.dump(captions_dict, f, indent=2)
+    print("✅ Captions saved to data/frame_captions.json")
+

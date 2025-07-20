@@ -1,48 +1,46 @@
-from dataclasses import dataclass
+import json
 import random
 from datetime import datetime, timedelta
 
-@dataclass
-class TelemetryEntry:
-    timestamp: str
-    location: str
-    altitude: float
+def infer_location(description: str) -> str:
+    location_keywords = {
+        "street": "Main Road",
+        "city": "Urban Zone",
+        "road": "Main Road",
+        "parking": "Parking Lot",
+        "lot": "Truck Yard",
+        "yard": "Truck Yard",
+        "dirt": "Side Access Road",
+        "garage": "Garage",
+        "gate": "Main Gate"
+    }
+    for keyword, location in location_keywords.items():
+        if keyword in description.lower():
+            return location
+    return "Unknown"
 
-@dataclass
-class FrameDescription:
-    timestamp: str
-    description: str
+def generate_telemetry_from_captions(captions_file="data/frame_captions.json"):
+    with open(captions_file) as f:
+        captions = json.load(f)
 
-def generate_sample_data(num_entries=5):
-    locations = ["Gate", "Garage", "Main Road", "Backyard"]
-    objects = ["Blue truck", "Person", "Dog", "Black SUV"]
+    base_time = datetime.strptime("00:00", "%H:%M")
+    telemetry_data = {}
 
-    base_time = datetime.now()
-    telemetry = []
-    frames = []
+    for i, (img_name, description) in enumerate(captions.items()):
+        timestamp = (base_time + timedelta(minutes=i)).strftime("%H:%M")
+        location = infer_location(description)
+        altitude = round(random.uniform(5.0, 20.0), 2)
 
-    for i in range(num_entries):
-        time = base_time + timedelta(minutes=i)
-        time_str = time.strftime("%H:%M")
+        telemetry_data[img_name] = {
+            "time": timestamp,
+            "location": location,
+            "altitude": altitude
+        }
 
-        # Telemetry simulation
-        loc = random.choice(locations)
-        alt = round(random.uniform(5.0, 20.0), 2)
-        telemetry.append(TelemetryEntry(timestamp=time_str, location=loc, altitude=alt))
+    with open("data/telemetry.json", "w") as f:
+        json.dump(telemetry_data, f, indent=2)
 
-        # Frame description simulation
-        obj = random.choice(objects)
-        frames.append(FrameDescription(timestamp=time_str, description=f"{obj} spotted at {loc}"))
-
-    return telemetry, frames
+    print("✅ Telemetry inferred and saved to data/telemetry.json")
 
 if __name__ == "__main__":
-    telemetry_data, frame_data = generate_sample_data()
-
-    print("\n--- Telemetry ---")
-    for entry in telemetry_data:
-        print(entry)
-
-    print("\n--- Frame Descriptions ---")
-    for frame in frame_data:
-        print(frame)
+    generate_telemetry_from_captions()
