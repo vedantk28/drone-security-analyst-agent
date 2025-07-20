@@ -1,0 +1,38 @@
+[
+    {
+        "timestamp": "10:46",
+        "object": "Black SUV",
+        "location": "Gate",
+        "action": "spotted"
+    },
+    {
+        "timestamp": "10:47",
+        "object": "Person",
+        "location": "Gate",
+        "action": "spotted"
+    },
+    {
+        "timestamp": "10:48",
+        "object": "Black SUV",
+        "location": "Gate",
+        "action": "spotted"
+    },
+    {
+        "timestamp": "10:49",
+        "object": "Black SUV",
+        "location": "Gate",
+        "action": "spotted"
+    },
+    {
+        "timestamp": "10:50",
+        "object": "Blue truck",
+        "location": "Garage",
+        "action": "spotted"
+    },
+    {
+        "timestamp": "10:51",
+        "object": "Black SUV",
+        "location": "Backyard",
+        "action": "spotted"
+    }
+]

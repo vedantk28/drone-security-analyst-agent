@@ -1,0 +1,20 @@
+[
+    {
+        "timestamp": "00:01",
+        "location": "Gate",
+        "object": "person",
+        "confidence": 0.92
+    },
+    {
+        "timestamp": "00:04",
+        "location": "Garage",
+        "object": "car",
+        "confidence": 0.88
+    },
+    {
+        "timestamp": "00:05",
+        "location": "Main Road",
+        "object": "bus",
+        "confidence": 0.29
+    }
+]
