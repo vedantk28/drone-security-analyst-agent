@@ -2,51 +2,51 @@
   "0000002_00005_d_0000014.jpg": {
     "time": "00:00",
     "location": "Main Road",
-    "altitude": 18.73
+    "altitude": 14.92
   },
   "0000002_00448_d_0000015.jpg": {
     "time": "00:01",
     "location": "Urban Zone",
-    "altitude": 14.36
+    "altitude": 12.54
   },
   "0000003_00231_d_0000016.jpg": {
     "time": "00:02",
     "location": "Urban Zone",
-    "altitude": 15.0
+    "altitude": 6.73
   },
   "0000007_04999_d_0000036.jpg": {
     "time": "00:03",
     "location": "Truck Yard",
-    "altitude": 12.97
+    "altitude": 19.65
   },
   "0000007_05499_d_0000037.jpg": {
     "time": "00:04",
     "location": "Truck Yard",
-    "altitude": 9.63
+    "altitude": 6.36
   },
   "0000007_05999_d_0000038.jpg": {
     "time": "00:05",
     "location": "Parking Lot",
-    "altitude": 11.39
+    "altitude": 12.34
   },
   "0000008_00889_d_0000039.jpg": {
     "time": "00:06",
     "location": "Main Road",
-    "altitude": 11.9
+    "altitude": 10.95
   },
   "0000008_01999_d_0000040.jpg": {
     "time": "00:07",
     "location": "Truck Yard",
-    "altitude": 13.7
+    "altitude": 16.41
   },
   "0000008_02499_d_0000041.jpg": {
     "time": "00:08",
     "location": "Main Road",
-    "altitude": 13.75
+    "altitude": 7.62
   },
   "0000008_02999_d_0000042.jpg": {
     "time": "00:09",
     "location": "Truck Yard",
-    "altitude": 8.34
+    "altitude": 12.63
   }
 }
