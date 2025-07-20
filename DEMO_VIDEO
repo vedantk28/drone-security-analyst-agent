@@ -1,0 +1,16 @@
+Demo video
+
+1.Caption Generation via BLIP-https://drive.google.com/file/d/1eGCPzXh1gNae6r7dRhgcSm7bMeo36mUD/view?usp=sharing
+2.Contextual Alerts and Rule-Based Triggers-https://drive.google.com/file/d/1I9bXfguERs1wTOxRorkUiLdsHA6tkJcS/view?usp=sharing
+3.Agent Reasoning & Semantic Query Handling-https://drive.google.com/file/d/1FNNRmRZChpk4E8nYuMCEBqP9uS9JQgOL/view?usp=sharing
+4.Innovative Features & Summary Tools-This final demo highlights key innovations and forward-thinking extensions built into the Drone Security Analyst Agent.
+
+First, we explore how FrameEvent objects encapsulate frame-level intelligence — each object includes the generated caption, inferred telemetry (like time, location), and semantic tags. This unified structure ensures that every module in the system — from alert logic to agent reasoning — operates with interpretable and traceable inputs.
+
+Next, we look at the rule-based alert engine, designed to be fully composable and transparent. Rules are written in plain Python logic and easily extensible — for example, we could add multi-object coordination, recurring detection thresholds, or temporal event chains with minimal effort.
+
+Semantic search is also a standout feature. Instead of matching exact keywords, the system uses vector similarity to interpret natural queries like “Was there any crowd activity near the Garage?”. This flexibility prepares the pipeline for instruction-following VLMs like BLIP-2 or InstructBLIP, which can handle multi-turn questioning or summarization across frame sequences.
+
+In future iterations, these modules could coordinate through multi-agent reasoning — allowing tools to share state, validate event chains, or co-author incident narratives.
+
+Overall, the system goes beyond static rule execution. It lays the foundation for scalable, intelligent, and explainable drone-based security monitoring.
