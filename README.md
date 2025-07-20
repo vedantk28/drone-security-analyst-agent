@@ -23,7 +23,7 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 4. Run the Manual Investigation Workflow
+### 4. Run the Investigation Workflow
 ```bash
 python -m src.langchain_agent  
 ```
